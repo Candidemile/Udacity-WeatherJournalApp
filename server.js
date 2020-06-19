@@ -37,7 +37,7 @@ app.post('/post', (req, res) => {
         projectData.date = req.body.date;
         projectData.user_response = req.body.user_response;
     }
-    res.send(`project data is updated:\n ${JSON.stringify(projectData)}`);
+    res.send(JSON.stringify(projectData));
     console.log(
         `Temperature: ${projectData.temperature}, date: ${projectData.date}, user response: ${projectData.user_response}`
     );

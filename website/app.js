@@ -18,7 +18,7 @@ const reqBodyForGet = {
 document.getElementById('generate').addEventListener('click', main);
 /* Function called by event listener */
 function main() {
-    getOpenWeatherData().then((weatherData) => postOpenWeatherData(weatherData));
+    getOpenWeatherData().then((weatherData) => postOpenWeatherData(weatherData)).then((data) => updateUI(data));
 }
 /* Function to GET Web API Data*/
 const getOpenWeatherData = async () => {
@@ -59,11 +59,14 @@ const postOpenWeatherData = async (weatherData) => {
         console.log('trying..');
         const result = await response;
         console.log('done\n');
-        return result;
+        return result.json();
     } catch (error) {
         console.log('That is the error: ', error);
     }
 };
-/* Function to GET Project Data */
-
-// postOpenWeatherData().then((res) => res.text()).then((res) => console.log(res));
+/* Function to update UI */
+const updateUI = (data) => {
+    document.getElementById('date').innerHTML = `<h3>${data.date}</h3>`;
+    document.getElementById('temp').innerHTML = `<h3>${data.temperature}</h3>`;
+    document.getElementById('content').innerHTML = `<h3>${data.user_response}</h3>`;
+};
