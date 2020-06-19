@@ -36,9 +36,10 @@ app.post('/post', (req, res) => {
         projectData.temperature = req.body.temperature;
         projectData.date = req.body.date;
         projectData.user_response = req.body.user_response;
+        projectData.city = req.body.city;
     }
     res.send(JSON.stringify(projectData));
     console.log(
-        `Temperature: ${projectData.temperature}, date: ${projectData.date}, user response: ${projectData.user_response}`
+        `Temperature: ${projectData.temperature}, date: ${projectData.date}, user_response: ${projectData.user_response}, city: ${projectData.city}`
     );
 });

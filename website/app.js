@@ -32,15 +32,18 @@ const getOpenWeatherData = async () => {
 const postOpenWeatherData = async (weatherData) => {
     const user_response = document.getElementById('feelings').value;
     let temperature = '-';
+    let city = '-';
     if (weatherData) {
         console.log(weatherData);
         temperature = weatherData.main.temp.toString() + ' C';
+        city = weatherData.name;
     }
 
     const data = {
         temperature: temperature,
         date: newDate,
-        user_response: user_response
+        user_response: user_response,
+        city: city
     };
     //  POST request info
     const reqBodyForPost = {
@@ -69,4 +72,5 @@ const updateUI = (data) => {
     document.getElementById('date').innerHTML = `<h3>${data.date}</h3>`;
     document.getElementById('temp').innerHTML = `<h3>${data.temperature}</h3>`;
     document.getElementById('content').innerHTML = `<h3>${data.user_response}</h3>`;
+    document.getElementById('city').innerHTML = `<h3>${data.city}</h3>`;
 };
