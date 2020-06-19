@@ -55,9 +55,9 @@ const postOpenWeatherData = async (weatherData) => {
         body: JSON.stringify(data)
     };
     // console.log(JSON.stringify(data));
-    const url = 'http://localhost:3000/post';
+    const url = 'http://localhost/post';
     console.log('Creating promise');
-    const response = await fetch(url, reqBodyForPost);
+    const response = await fetch('/post', reqBodyForPost);
     try {
         console.log('trying..');
         const result = await response;

@@ -17,10 +17,11 @@ app.use(cors());
 app.use(express.static('website'));
 
 // Setup Server
+const port = process.env.PORT || 80;
 const listening = () => {
-    console.log('The server is running..');
+    console.log(`The server is running on port ${port}..`);
 };
-app.listen(3000, listening);
+app.listen(port, listening);
 
 /* GET routes */
 app.get('/all', function(req, res) {
@@ -31,7 +32,7 @@ app.get('/all', function(req, res) {
 /* POST routes */
 // POST route for adding temperature, date and user response to projectData
 app.post('/post', (req, res) => {
-    console.log('POST request is being processed. Adding new data to projectData.');
+    console.log('POST request is being processed. Adding new data to projectData.\n', req.body);
     if (req.body) {
         projectData.temperature = req.body.temperature;
         projectData.date = req.body.date;
