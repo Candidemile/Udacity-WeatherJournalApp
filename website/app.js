@@ -2,7 +2,7 @@
 const url = 'https://community-open-weather-map.p.rapidapi.com/weather?units=metric&';
 // Create a new date instance dynamically with JS
 let d = new Date();
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
+let newDate = d.getMonth() + 1 + '.' + d.getDate() + '.' + d.getFullYear();
 
 // Personal API Key for OpenWeatherMap API
 const apikey = 'f6a641105amsh3901a1f0f0ca125p1afce6jsnb6d0dd468558';
